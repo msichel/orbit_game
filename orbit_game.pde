@@ -39,6 +39,12 @@ void draw()
         }
       }
     }
+    //rocket propulsion
+    if (mousePressed&& ship != null)
+    {
+      ship.addThrust();
+    }
+    
     //show and move bodies and apply rocket-body gravity to rocket
     for (int i = 0; i < bodies.size(); i++)
     {
@@ -54,11 +60,6 @@ void draw()
           gameMode++;
         }
       }
-    }
-    //rocket propulsion
-    if (mousePressed&& ship != null)
-    {
-      ship.addThrust();
     }
   }
   else if (gameMode == 1)
