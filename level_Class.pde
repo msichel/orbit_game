@@ -6,7 +6,7 @@ class Level
   PVector pos;
   Zone start;
   Zone end;
-  Level(ArrayList<Body> bodies_,Zone start_, Zone end_,)
+  Level(ArrayList<Body> bodies_, Zone start_, Zone end_)
   {
     for (Body b:bodies_)
     {
@@ -58,6 +58,13 @@ class Level
         }
       }
     }
+    if (ship != null)
+    {
+      if (abs(ship.pos.x - end.center.x) < end.zSize.x/2 && abs(ship.pos.y - end.center.y) < end.zSize.y/2)
+      {
+        gameMode = 2;
+      }
+    }
     start.render();
     end.render();
   }
@@ -65,7 +72,7 @@ class Level
   {
     if (pos == null)
     {
-      if(abs(pos.x - start.center.x) > start.size.x/2 && abs(pos.y - start.center.y) > start.size.y/2)
+      if (abs(mouseX - start.center.x) < start.zSize.x/2 && abs(mouseY - start.center.y) < start.zSize.y/2)
       {
         pos = new PVector(mouseX, mouseY);
       }

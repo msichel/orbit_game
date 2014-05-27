@@ -19,6 +19,6 @@ class Zone
     {
       fill(255,0,0,50);
     }
-    rect(center.x,center.y,size,x,size,y);
+    rect(center.x,center.y,zSize.x,zSize.y);
   }
 }

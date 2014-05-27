@@ -72,7 +72,15 @@ void draw()
   {
     background(255, 0, 0);
     textSize(50);
+    fill(255);
     text("BOOM!", width/2, height/2);
+  }
+  else if (gameMode == 2)
+  {
+    background(0,255,0);
+    textSize(50);
+    fill(255);
+    text("YOU WIN!", width/2, height/2);
   }
 }
 
