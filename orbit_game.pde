@@ -11,12 +11,13 @@ void setup()
   size(displayWidth, displayHeight);
   imageMode(CENTER);
   textAlign(CENTER);
+  rectMode(CENTER);
   ArrayList <Body> bodies = new ArrayList<Body>();
   bodies.add(new Body(new PVector(width/2, height/2-100), new PVector(3, 0), 50, 50));
   bodies.add(new Body(new PVector(width/2, height/2+100), new PVector(-3, 0), 50, 50));
-  Zone s = new Zone(new PVector(50, height/2), new PVector(100,100), 0);
-  Zone e = new Zone(new PVector(width-50,height/2), new PVector(100,100), 1);
-  level = new Level(bodies);
+  Zone start = new Zone(new PVector(50, height/2), new PVector(100,100), 0);
+  Zone end = new Zone(new PVector(width-50,height/2), new PVector(100,100), 1);
+  level = new Level(bodies,start,end);
   gameMode = 0;
 }
 

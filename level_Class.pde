@@ -58,20 +58,24 @@ class Level
         }
       }
     }
+    start.render();
+    end.render();
   }
   void click()
   {
     if (pos == null)
     {
-      pos = new PVector(mouseX, mouseY);
+      if(abs(pos.x - start.center.x) > start.size.x/2 && abs(pos.y - start.center.y) > start.size.y/2)
+      {
+        pos = new PVector(mouseX, mouseY);
+      }
     }
 
-    else
-      if (dir == null)
-      {
-        dir = new PVector(pos.x-mouseX, pos.y-mouseY);
-        ship = new Spacecraft(pos, dir);
-      }
+    else if (dir == null)
+    {
+      dir = new PVector(pos.x-mouseX, pos.y-mouseY);
+      ship = new Spacecraft(pos, dir);
+    }
   }
 }
 

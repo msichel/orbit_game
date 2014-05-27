@@ -11,6 +11,14 @@ class Zone
   }
   void render()
   {
-    
+    if(type == 0)
+    {
+      fill(0,0,255,50);
+    }
+    else if(type == 1)
+    {
+      fill(255,0,0,50);
+    }
+    rect(center.x,center.y,size,x,size,y);
   }
 }
