@@ -118,4 +118,11 @@ void mousePressed()
 //      ship = new Spacecraft(pos, dir);
 //    }
 }
+void keyPressed()
+{
+  if(key == 'r' || key == 'R')
+  {
+    setup();
+  }
+}
 
