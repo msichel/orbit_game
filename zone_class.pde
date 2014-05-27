@@ -9,4 +9,8 @@ class Zone
     zSize = new PVector(zSize_.x,zSize_.y);
     type = type_;
   }
+  void render()
+  {
+    
+  }
 }

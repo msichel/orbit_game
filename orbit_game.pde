@@ -14,6 +14,8 @@ void setup()
   ArrayList <Body> bodies = new ArrayList<Body>();
   bodies.add(new Body(new PVector(width/2, height/2-100), new PVector(3, 0), 50, 50));
   bodies.add(new Body(new PVector(width/2, height/2+100), new PVector(-3, 0), 50, 50));
+//  Zone s = new Zone(
+  
   level = new Level(bodies);
   gameMode = 0;
 }

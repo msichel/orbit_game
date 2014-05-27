@@ -4,12 +4,16 @@ class Level
   ArrayList<Body> bodies = new ArrayList<Body>();
   PVector dir;
   PVector pos;
-  Level(ArrayList<Body> bodies_)
+  Zone start;
+  Zone end;
+  Level(ArrayList<Body> bodies_,Zone start_, Zone end_,)
   {
     for (Body b:bodies_)
     {
       bodies.add(b);
     }
+    start = start_;
+    end = end_;
   }
   void update()
   {
