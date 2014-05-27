@@ -1,66 +1,69 @@
 final float G = 60;
-Spacecraft ship;
-ArrayList<Body> bodies = new ArrayList<Body>();
-float fuel = 10;
-int gameMode = 0;
-PVector dir;
-PVector pos;
+//Spacecraft ship;
+//ArrayList<Body> bodies = new ArrayList<Body>();
+int gameMode;
+//PVector dir;
+//PVector pos;
+Level level;
 
 void setup()
 {
   size(displayWidth, displayHeight);
   imageMode(CENTER);
   textAlign(CENTER);
-
+  ArrayList <Body> bodies = new ArrayList<Body>();
   bodies.add(new Body(new PVector(width/2, height/2-100), new PVector(3, 0), 50, 50));
   bodies.add(new Body(new PVector(width/2, height/2+100), new PVector(-3, 0), 50, 50));
+  level = new Level(bodies);
+  gameMode = 0;
 }
 
 void draw()
 {
   if (gameMode == 0)
   {
-    background(0);
-    if (ship != null)
-    {
-      ship.show();
-      ship.move();
-    }
-    //apply body-body gravity
-    for (int i = 0; i < bodies.size(); i++)
-    {
-      Body on = bodies.get(i);
-      for (int j = 0; j < bodies.size(); j++)
-      {
-        Body by = bodies.get(j);
-        if (j != i)
-        {
-          on.grav(addGrav(on, by));
-        }
-      }
-    }
-    //rocket propulsion
-    if (mousePressed&& ship != null)
-    {
-      ship.addThrust();
-    }
-    
-    //show and move bodies and apply rocket-body gravity to rocket
-    for (int i = 0; i < bodies.size(); i++)
-    {
-      Body b = bodies.get(i);
-      b.move();
-      b.show();
-      if (ship != null)
-      {
-        ship.grav(addGrav(ship, b));
-        //rocket-body crashes
-        if (dist(ship.pos.x, ship.pos.y, b.pos.x, b.pos.y) <= b.d/2 + ship.d/2)
-        {
-          gameMode++;
-        }
-      }
-    }
+    level.update();
+//    background(0);
+//    if (ship != null)
+//    {
+//      ship.show();
+//      ship.move();
+//    }
+//    //apply body-body gravity
+//    for (int i = 0; i < bodies.size(); i++)
+//    {
+//      Body on = bodies.get(i);
+//      for (int j = 0; j < bodies.size(); j++)
+//      {
+//        Body by = bodies.get(j);
+//        if (j != i)
+//        {
+//          on.grav(addGrav(on, by));
+//        }
+//      }
+//    }
+//    //rocket propulsion
+//    if (mousePressed&& ship != null)
+//    {
+//      ship.addThrust();
+//    }
+//    
+//    //show and move bodies and apply rocket-body gravity to rocket
+//    for (int i = 0; i < bodies.size(); i++)
+//    {
+//      Body b = bodies.get(i);
+//      b.move();
+//      b.show();
+//      if (ship != null)
+//      {
+//        ship.grav(addGrav(ship, b));
+//        //rocket-body crashes
+//        if (dist(ship.pos.x, ship.pos.y, b.pos.x, b.pos.y) <= b.d/2 + ship.d/2)
+//        {
+//          gameMode++;
+//        }
+//      }
+//    }
   }
   else if (gameMode == 1)
   {
@@ -95,16 +98,24 @@ boolean sketchFullScreen()
 
 void mousePressed()
 {
-  if (pos == null)
+  if(gameMode == 0)
   {
-    pos = new PVector(mouseX, mouseY);
+    level.click();
   }
-
-  else
-    if (dir == null)
-    {
-      dir = new PVector(pos.x-mouseX, pos.y-mouseY);
-      ship = new Spacecraft(pos, dir);
-    }
+  else if (gameMode == 1)
+  {
+    setup();
+  }
+//  if (pos == null)
+//  {
+//    pos = new PVector(mouseX, mouseY);
+//  }
+//
+//  else
+//    if (dir == null)
+//    {
+//      dir = new PVector(pos.x-mouseX, pos.y-mouseY);
+//      ship = new Spacecraft(pos, dir);
+//    }
 }
 
