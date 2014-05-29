@@ -37,11 +37,6 @@ class Level
   void update()
   {
     background(0);
-    if (ship != null)
-    {
-      ship.show();
-      ship.move();
-    }
     //apply body-body gravity
     for (int i = 0; i < bodies.size(); i++)
     {
@@ -73,7 +68,6 @@ class Level
         //rocket-body crashes
         if (dist(ship.pos.x, ship.pos.y, b.pos.x, b.pos.y) <= b.d/2 + ship.d/2)
         {
-          
           gameMode++;
         }
       }
@@ -87,6 +81,11 @@ class Level
     }
     start.render();
     end.render();
+    if (ship != null)
+    {
+      ship.show();
+      ship.move();
+    }
   }
   void click()
   {
