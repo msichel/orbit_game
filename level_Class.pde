@@ -16,6 +16,11 @@ class Level
     }
     start = start_;
     end = end_;
+    cm = returnCM();
+    for(Body b:bodies)
+    {
+      b.rv = dist(cm.x,cm.y,b.pos.x,b.pos.y)*b.vel.mag();
+    }
   }
   PVector returnCM()
   {
@@ -83,6 +88,17 @@ class Level
       {
         gameMode = 2;
       }
+    }
+    cm = returnCM();
+    for(Body b:bodies)
+    {
+      b.rv = dist(cm.x,cm.y,b.pos.x,b.pos.y)*b.vel.mag();
+      b.velCheck(cm);
+    }
+    if(ship != null)
+    {
+      ship.rv = dist(cm.x,cm.y,ship.pos.x,ship.pos.y)*ship.vel.mag();
+      ship.velCheck(cm);
     }
     start.render();
     end.render();
