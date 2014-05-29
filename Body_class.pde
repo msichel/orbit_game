@@ -5,6 +5,7 @@ class Body
   PVector acc;
   float mass;
   float d;
+  float rv;
 
   Body(PVector pos_, PVector vel_, float mass_, float d_)
   {
@@ -26,7 +27,12 @@ class Body
     pos.add(vel);
     acc = new PVector(0, 0);
   }
-  
+  void velCheck(PVector cm)
+  {
+    cm.sub(pos);
+    vel.normalize();
+    vel.mult(rv/cm.mag());
+  }
   void show()
   {
     fill(255);
