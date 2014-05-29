@@ -73,6 +73,7 @@ class Level
         //rocket-body crashes
         if (dist(ship.pos.x, ship.pos.y, b.pos.x, b.pos.y) <= b.d/2 + ship.d/2)
         {
+          
           gameMode++;
         }
       }

@@ -15,9 +15,9 @@ void setup()
   ArrayList <Body> bodies = new ArrayList<Body>();
   bodies.add(new Body(new PVector(width/2, height/2-100), new PVector(3, 0), 50, 50));
   bodies.add(new Body(new PVector(width/2, height/2+100), new PVector(-3, 0), 50, 50));
-  Zone start = new Zone(new PVector(50, height/2), new PVector(100,100), 0);
-  Zone end = new Zone(new PVector(width-50,height/2), new PVector(100,100), 1);
-  level = new Level(bodies,start,end);
+  Zone start = new Zone(new PVector(50, height/2), new PVector(100, 100), 0);
+  Zone end = new Zone(new PVector(width-50, height/2), new PVector(100, 100), 1);
+  level = new Level(bodies, start, end);
   gameMode = 0;
 }
 
@@ -29,17 +29,15 @@ void draw()
   }
   else if (gameMode == 1)
   {
-    background(255, 0, 0);
     textSize(50);
-    fill(255);
-    text("BOOM!", width/2, height/2);
+    fill(255, 0, 0);
+    text("BOOM! YOU LOSE!", width/2, 100);
   }
   else if (gameMode == 2)
   {
-    background(0,255,0);
     textSize(50);
-    fill(255);
-    text("YOU WIN!", width/2, height/2);
+    fill(0, 255, 0);
+    text("YOU WIN!", width/2, 100);
   }
 }
 
@@ -68,7 +66,7 @@ boolean sketchFullScreen()
 
 void mousePressed()
 {
-  if(gameMode == 0)
+  if (gameMode == 0)
   {
     level.click();
   }
@@ -76,21 +74,21 @@ void mousePressed()
   {
     setup();
   }
-//  if (pos == null)
-//  {
-//    pos = new PVector(mouseX, mouseY);
-//  }
-//
-//  else
-//    if (dir == null)
-//    {
-//      dir = new PVector(pos.x-mouseX, pos.y-mouseY);
-//      ship = new Spacecraft(pos, dir);
-//    }
+  //  if (pos == null)
+  //  {
+  //    pos = new PVector(mouseX, mouseY);
+  //  }
+  //
+  //  else
+  //    if (dir == null)
+  //    {
+  //      dir = new PVector(pos.x-mouseX, pos.y-mouseY);
+  //      ship = new Spacecraft(pos, dir);
+  //    }
 }
 void keyPressed()
 {
-  if(key == 'r' || key == 'R')
+  if (key == 'r' || key == 'R')
   {
     setup();
   }
