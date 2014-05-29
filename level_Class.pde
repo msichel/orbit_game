@@ -7,7 +7,7 @@ class Level
   Zone start;
   Zone end;
   PVector cm;
-  
+
   Level(ArrayList<Body> bodies_, Zone start_, Zone end_)
   {
     for (Body b:bodies_)
@@ -31,9 +31,9 @@ class Level
       ycmN += b.mass*b.pos.y;
       ycmD += b.mass;
     }
-    return new PVector(xcmN/xcmD,ycmN/ycmD);
+    return new PVector(xcmN/xcmD, ycmN/ycmD);
   }
-  
+
   void update()
   {
     background(0);
@@ -85,6 +85,17 @@ class Level
     {
       ship.show();
       ship.move();
+    }
+    if (ship != null)
+    {
+      fill(255);
+      textSize(30);
+      text("Dashboard", 150, height - 225);
+      textSize(20);
+      textAlign(LEFT);
+      text("Position:" + int(ship.pos.x) + ',' + int(ship.pos.y), 50, height - 175);
+      text("Velocity:", 50, height - 150);
+      textAlign(CENTER,CENTER);
     }
   }
   void click()
