@@ -6,6 +6,8 @@ class Level
   PVector pos;
   Zone start;
   Zone end;
+  PVector cm;
+  
   Level(ArrayList<Body> bodies_, Zone start_, Zone end_)
   {
     for (Body b:bodies_)
@@ -15,6 +17,23 @@ class Level
     start = start_;
     end = end_;
   }
+  PVector returnCM()
+  {
+    float xcmN = 0;
+    float xcmD = 0;
+    float ycmN = 0;
+    float ycmD = 0;
+    for (int i = 0; i < bodies.size(); i++)
+    {
+      Body b = bodies.get(i);
+      xcmN += b.mass*b.pos.x;
+      xcmD += b.mass;
+      ycmN += b.mass*b.pos.y;
+      ycmD += b.mass;
+    }
+    return new PVector(xcmN/xcmD,ycmN/ycmD);
+  }
+  
   void update()
   {
     background(0);
@@ -37,7 +56,7 @@ class Level
       }
     }
     //rocket propulsion
-    if (mousePressed&& ship != null)
+    if (mousePressed && ship != null)
     {
       ship.addThrust();
     }
