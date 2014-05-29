@@ -39,12 +39,14 @@ class Spacecraft
     pos.add(vel);
     trail.addPos(pos);
     acc = new PVector(0, 0);
+    direction = new PVector(pos.x-mouseX,pos.y-mouseY);
+    direction.normalize();
     
   }
 
   void addThrust()
   {
-    if(fuelMass >0)
+    if(fuelMass > 0)
     {
       stroke(255,127.5,0);
       strokeWeight(5);
