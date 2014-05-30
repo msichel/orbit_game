@@ -103,8 +103,8 @@ class Level
       text("Dashboard", 150, height - 125);
       textSize(20);
       textAlign(LEFT);
-      text("Position:" + int(ship.pos.x) + ',' + int(ship.pos.y), 50, height - 75);
-      text("Velocity:" + int(10*ship.vel.x) + ',' + int(10*ship.vel.y), 50, height - 50);
+      text("Position:" + int(ship.pos.x) + ',' + int(height - ship.pos.y), 50, height - 75);
+      text("Velocity:" + int(10*ship.vel.x) + ',' + int(-10*ship.vel.y), 50, height - 50);
       textAlign(CENTER,CENTER);
     }
   }

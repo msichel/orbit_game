@@ -2,7 +2,7 @@ final float G = 60;
 //Spacecraft ship;
 //ArrayList<Body> bodies = new ArrayList<Body>();
 int gameMode;
-int levelnum = 0;
+int levelnum = 7;
 //PVector dir;
 //PVector pos;
 ArrayList<Level> levels = new ArrayList<Level>();
@@ -104,6 +104,13 @@ void setupLevels()
   bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0), 100, 50));
   bodies.add(new Body(new PVector(width/2-100,height/2),new PVector(0,sqrt(60)),10,5));
   bodies.add(new Body(new PVector(width/2+200,height/2),new PVector(0,-sqrt(30)),10*sqrt(2),10*sqrt(2)));
+  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
+  zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
+  levels.add(new Level(bodies,zones.get(0),zones.get(1)));
+  
+  bodies.clear();
+  zones.clear();
+  bodies.add(new Body(new PVector(150, height/2), new PVector(0, 0), 25, 100));
   zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1)));
