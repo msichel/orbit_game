@@ -2,7 +2,7 @@ final float G = 60;
 //Spacecraft ship;
 //ArrayList<Body> bodies = new ArrayList<Body>();
 int gameMode;
-int levelnum = 7;
+int levelnum = 0;
 //PVector dir;
 //PVector pos;
 ArrayList<Level> levels = new ArrayList<Level>();
