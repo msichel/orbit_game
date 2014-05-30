@@ -29,9 +29,7 @@ class Body
   }
   void velCheck(PVector cm)
   {
-    cm.sub(pos);
-    vel.normalize();
-    vel.mult(rv/cm.mag());
+
   }
   void show()
   {

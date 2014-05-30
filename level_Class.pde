@@ -87,13 +87,7 @@ class Level
     cm = returnCM();
     for(Body b:bodies)
     {
-      b.rv = dist(cm.x,cm.y,b.pos.x,b.pos.y)*b.vel.mag();
       b.velCheck(cm);
-    }
-    if(ship != null)
-    {
-      ship.rv = dist(cm.x,cm.y,ship.pos.x,ship.pos.y)*ship.vel.mag();
-      ship.velCheck(cm);
     }
     start.render();
     end.render();
@@ -106,11 +100,11 @@ class Level
     {
       fill(255);
       textSize(30);
-      text("Dashboard", 150, height - 225);
+      text("Dashboard", 150, height - 125);
       textSize(20);
       textAlign(LEFT);
-      text("Position:" + int(ship.pos.x) + ',' + int(ship.pos.y), 50, height - 175);
-      text("Velocity:" + int(10*ship.vel.x) + ',' + int(10*ship.vel.y), 50, height - 150);
+      text("Position:" + int(ship.pos.x) + ',' + int(ship.pos.y), 50, height - 75);
+      text("Velocity:" + int(10*ship.vel.x) + ',' + int(10*ship.vel.y), 50, height - 50);
       textAlign(CENTER,CENTER);
     }
   }

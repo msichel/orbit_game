@@ -9,7 +9,6 @@ class Spacecraft
   float fuelMass = 4;
   float thrust = 2;
   int d = 20;
-  float rv = 0;
   Trail trail;
 
   Spacecraft(PVector pos_, PVector dir)
@@ -43,12 +42,6 @@ class Spacecraft
     direction = new PVector(pos.x-mouseX,pos.y-mouseY);
     direction.normalize();
     
-  }
-   void velCheck(PVector cm)
-  {
-    cm.sub(pos);
-    vel.normalize();
-    vel.mult(rv/cm.mag());
   }
 
   void addThrust()
