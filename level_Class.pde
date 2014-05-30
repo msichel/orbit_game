@@ -110,7 +110,7 @@ class Level
       textSize(20);
       textAlign(LEFT);
       text("Position:" + int(ship.pos.x) + ',' + int(ship.pos.y), 50, height - 175);
-      text("Velocity:", 50, height - 150);
+      text("Velocity:" + int(10*ship.vel.x) + ',' + int(10*ship.vel.y), 50, height - 150);
       textAlign(CENTER,CENTER);
     }
   }
