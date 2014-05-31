@@ -19,18 +19,20 @@ void setup()
 
 void draw()
 {
-  if (levelnum <levels.size())
+  if (levelnum < levels.size())
   {
     Level level = levels.get(levelnum); 
     if (gameMode == 0)
     {
       level.update();
-    } else if (gameMode == 1)
+    }
+    else if (gameMode == 1)
     {
       textSize(50);
       fill(255, 0, 0);
       text("BOOM! YOU LOSE!", width/2, 100);
-    } else if (gameMode == 2)
+    }
+    else if (gameMode == 2)
     {
       textSize(50);
       fill(0, 255, 0);
@@ -45,6 +47,7 @@ void draw()
     text("YOU WIN!", width/2,height/2);
   }
 }
+
 void setupLevels()
 {
   levels.clear();
@@ -114,7 +117,6 @@ void setupLevels()
   zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1)));
-
 }
 
 PVector addGrav(Body on, Body by)
@@ -144,11 +146,13 @@ void mousePressed()
     if (gameMode == 0)
     {
       level.click();
-    } else if (gameMode == 1)
+    }
+    else if (gameMode == 1)
     {
       setupLevels();
       gameMode = 0;
-    } else if (gameMode == 2)
+    }
+    else if (gameMode == 2)
     {
       levelnum++;
       setupLevels();
