@@ -27,10 +27,6 @@ class Body
     pos.add(vel);
     acc = new PVector(0, 0);
   }
-  void velCheck(PVector cm)
-  {
-
-  }
   void show()
   {
     fill(255);
