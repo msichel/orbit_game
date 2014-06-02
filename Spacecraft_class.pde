@@ -35,8 +35,11 @@ class Spacecraft
 
   void move()
   {
+    acc.mult(delta);
     vel.add(acc);
+    vel.mult(delta);
     pos.add(vel);
+    vel.div(delta);
     trail.addPos(pos);
     acc = new PVector(0, 0);
     direction = new PVector(pos.x-mouseX,pos.y-mouseY);

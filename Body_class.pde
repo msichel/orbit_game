@@ -23,13 +23,12 @@ class Body
 
   void move()
   {
+    acc.mult(delta);
     vel.add(acc);
+    vel.mult(delta);
     pos.add(vel);
+    vel.div(delta);
     acc = new PVector(0, 0);
-  }
-  void velCheck(PVector cm)
-  {
-
   }
   void show()
   {
