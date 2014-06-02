@@ -6,12 +6,9 @@ int levelnum = 0;
 //PVector dir;
 //PVector pos;
 ArrayList<Level> levels = new ArrayList<Level>();
-float deltaT = 1/60;
-float delta = 60 * deltaT;
 
 void setup()
 {
-  frameRate(1/deltaT);
   size(1280, 720);
   imageMode(CENTER);
   textAlign(CENTER);

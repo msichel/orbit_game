@@ -6,6 +6,7 @@ class Level
   PVector pos;
   Zone start;
   Zone end;
+  PVector cm;
 
   Level(ArrayList<Body> bodies_, Zone start_, Zone end_)
   {
@@ -15,8 +16,28 @@ class Level
     }
     start = start_;
     end = end_;
+    cm = returnCM();
+    for(Body b:bodies)
+    {
+      b.rv = dist(cm.x,cm.y,b.pos.x,b.pos.y)*b.vel.mag();
+    }
   }
-
+  PVector returnCM()
+  {
+    float xcmN = 0;
+    float xcmD = 0;
+    float ycmN = 0;
+    float ycmD = 0;
+    for (int i = 0; i < bodies.size(); i++)
+    {
+      Body b = bodies.get(i);
+      xcmN += b.mass*b.pos.x;
+      xcmD += b.mass;
+      ycmN += b.mass*b.pos.y;
+      ycmD += b.mass;
+    }
+    return new PVector(xcmN/xcmD, ycmN/ycmD);
+  }
 
   void update()
   {
@@ -62,6 +83,11 @@ class Level
       {
         gameMode = 2;
       }
+    }
+    cm = returnCM();
+    for(Body b:bodies)
+    {
+      b.velCheck(cm);
     }
     start.render();
     end.render();
