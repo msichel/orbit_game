@@ -59,12 +59,14 @@ void setupLevels()
   ArrayList <Body> bodies = new ArrayList<Body>();
   ArrayList <Zone> zones = new ArrayList<Zone>();
   
+  //level 0
   bodies.add(new Body(new PVector(width/2, height/2-100), new PVector(2, 0), 100, 100));
   bodies.add(new Body(new PVector(width/2, height/2+100), new PVector(-2, 0), 100, 100));
   zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1)));
   
+  //level 1
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0), 1, 10));
@@ -74,6 +76,7 @@ void setupLevels()
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1)));
   
+  //level 2
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, -2300), new PVector(0, 0), 4500, 5000));
@@ -81,6 +84,7 @@ void setupLevels()
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1)));
 
+  //level 3
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, height/2-200), new PVector(3, 0), 100, 100));
@@ -89,6 +93,7 @@ void setupLevels()
   zones.add(new Zone(new PVector(width/2,height/2), new PVector(25, 25), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1)));
 
+  //level 4
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, height/2-300), new PVector(3, 0), 50, 50));
@@ -99,6 +104,7 @@ void setupLevels()
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1)));
   
+  //level 5
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0 ), 1000, 100));
@@ -106,6 +112,7 @@ void setupLevels()
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1)));
   
+  //level 6
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0), 100, 50));
@@ -115,6 +122,7 @@ void setupLevels()
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1)));
   
+  //level 7
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(150, height/2), new PVector(0, 0), 25, 100));
