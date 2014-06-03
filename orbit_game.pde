@@ -1,11 +1,12 @@
 final float G = 60;
 //Spacecraft ship;
 //ArrayList<Body> bodies = new ArrayList<Body>();
-int gameMode;
+int gameMode = -1;
 int levelnum = 0;
 //PVector dir;
 //PVector pos;
 ArrayList<Level> levels = new ArrayList<Level>();
+Menu menu = new Menu();
 
 void setup()
 {
@@ -14,14 +15,17 @@ void setup()
   textAlign(CENTER);
   rectMode(CENTER);
   setupLevels();
-  gameMode = 0;
 }
 
 void draw()
 {
   if (levelnum < levels.size())
   {
-    Level level = levels.get(levelnum); 
+    if (gameMode == -1)
+    {
+      menu.display();
+    }
+    Level level = levels.get(levelnum);
     if (gameMode == 0)
     {
       level.update();
