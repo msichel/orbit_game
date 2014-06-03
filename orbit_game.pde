@@ -137,7 +137,6 @@ PVector addGrav(Spacecraft on, Body by)
   return gravity;
 }
 
-
 void mousePressed()
 {
   if (levelnum<levels.size())
@@ -160,6 +159,7 @@ void mousePressed()
     }
   }
 }
+
 void keyPressed()
 {
   if (key == 'r' || key == 'R')
