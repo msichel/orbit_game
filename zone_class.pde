@@ -5,20 +5,21 @@ class Zone
   int type;
   Zone(PVector center_, PVector zSize_, int type_)
   {
-    center = new PVector(center_.x,center_.y);
-    zSize = new PVector(zSize_.x,zSize_.y);
+    center = new PVector(center_.x, center_.y);
+    zSize = new PVector(zSize_.x, zSize_.y);
     type = type_;
   }
   void render()
   {
-    if(type == 0)
+    if (type == 0)
     {
-      fill(0,0,255,50);
+      fill(0, 0, 255, 95);
     }
-    else if(type == 1)
+    else if (type == 1)
     {
-      fill(255,0,0,50);
+      fill(255, 0, 0, 95);
     }
-    rect(center.x,center.y,zSize.x,zSize.y);
+    rect(center.x, center.y, zSize.x, zSize.y);
   }
 }
+
