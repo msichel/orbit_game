@@ -145,6 +145,22 @@ void setupLevels()
   zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1),1000));
+  
+  //level 8
+  bodies.clear();
+  zones.clear();
+  bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0), 25, 100));
+  zones.add(new Zone(new PVector(width/2, height/2-100), new PVector(10,10), 0));  
+  zones.add(new Zone(new PVector(width/2,height/2+100), new PVector(10,10), 1));
+  levels.add(new Level(bodies,zones.get(0),zones.get(1),1000));  
+  
+  //level 9
+  bodies.clear();
+  zones.clear();
+  bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0), 300, 300));
+  zones.add(new Zone(new PVector(100, height/2), new PVector(100,500), 0));  
+  zones.add(new Zone(new PVector(width/2+150,height/2), new PVector(40,50), 1));
+  levels.add(new Level(bodies,zones.get(0),zones.get(1),1000)); 
 }
 
 PVector addGrav(Body on, Body by)
