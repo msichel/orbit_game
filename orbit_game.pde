@@ -34,10 +34,10 @@ void draw()
       text("Click again anywhere to choose the direction of your thrusters.", width/2, 200);
       fill(255, 0, 255);
       text("Your spaceship will launch in the opposite direction.", width/2, 300);
-      text("To move onto the next level, navigate to the red zone.", width/2, 400);
+      text("To move onto the next level, navigate to the red zone before your oxygen runs out!", width/2, 400);
       fill(255, 255, 0);
-      text("Your fuel is very limited! The longer you click, the more you use.", width/2, 500);
-      text("If you save some fuel from the launch, you can use it during your flight.", width/2, 600);
+      text("Your fuel, the orange bar, and your oxygen, the light blue bar, are very limited.", width/2, 500);
+      text("The longer you click, the more fuel you use.", width/2, 600);
       gameMode = -1;
     }
     Level level = levels.get(levelnum);
