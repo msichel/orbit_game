@@ -7,6 +7,7 @@ class Spacecraft
   PVector direction;
   float mass = 1;
   float fuelMass = 4;
+  float fuelMassM = 4;
   float thrust = 2;
   int d = 20;
   float o2;
@@ -38,6 +39,8 @@ class Spacecraft
     fill(188,253,255);
     rectMode(CORNER);
     rect(50,height-25,50*o2/o2M,10);
+    fill(255,127.5,0);
+    rect(50,height-40,50*fuelMass/fuelMassM,10);
     rectMode(CENTER);
   }
 
