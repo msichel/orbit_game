@@ -25,6 +25,18 @@ void draw()
     {
       menu.display();
     }
+    if (gameMode == -2)
+    {
+      background(0);
+      textSize(30);
+      text("Click once in the blue zone to choose the starting point of your spaceship.", width/2, 100);
+      text("To move onto the next level, you must navigate yourself to the red zone.", width/2, 100);
+      text("Click again anywhere to choose the direction of your thrusters.", width/2, 100);
+      text("Your spaceship will launch in the opposite direction.", width/2, 100);
+      text("Your fuel is very limited! The longer you click, the more you use.", width/2, 100);
+      text("If you don't use all of your fuel in the launch, you can use it during your flight.", width/2, 100);
+      gameMode = -1;
+    }
     Level level = levels.get(levelnum);
     if (gameMode == 0)
     {

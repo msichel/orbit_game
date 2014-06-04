@@ -12,6 +12,15 @@ class Menu
     fill(80, 247, 145);
     text("ORBIT GAME", width/2, 125);
     rectMode(CENTER);
+    fill(50, 50, 255);
+    rect(width/2, height/2+50, 275, 75);
+    textSize(40);
+    fill(255);
+    text("Instructions", width/2, height/2+50);
+    if (mousePressed && checkButton(width/2, height/2+50, 275, 75))
+    {
+      gameMode = -2;
+    }
     for (int i = 0; i < 5; i++)
     {
       fill(255, 40, 40);
@@ -31,7 +40,7 @@ class Menu
       }
     }
   }
-  boolean checkButton(float x, float y,float w, float h)
+  boolean checkButton(float x, float y, float w, float h)
   {
     return mouseX >= x-w/2 && mouseX <= x+w/2 && mouseY >= y-h/2 && mouseY <= y+h/2;
   }
