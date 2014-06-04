@@ -194,5 +194,9 @@ void keyPressed()
     setupLevels();
     gameMode = 0;
   }
+  if (key == ' ')
+  {
+    gameMode = -1;
+  }
 }
 
