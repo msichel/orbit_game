@@ -9,9 +9,11 @@ class Spacecraft
   float fuelMass = 4;
   float thrust = 2;
   int d = 20;
+  float o2;
+  float o2M;
   Trail trail;
 
-  Spacecraft(PVector pos_, PVector dir)
+  Spacecraft(PVector pos_, PVector dir,float o2_)
   {
     pos = new PVector(pos_.x, pos_.y);
     vel = new PVector(0, 0);
@@ -20,6 +22,8 @@ class Spacecraft
     dir.normalize();
     direction = new PVector(dir.x,dir.y);
     trail = new Trail(pos);
+    o2 = o2_;
+    o2M = o2;
   }
 
   void grav(PVector g)
@@ -31,6 +35,10 @@ class Spacecraft
   {
     trail.render();
     image(spacecraft, pos.x, pos.y, d, d);
+    fill(188,253,255);
+    rectMode(CORNER);
+    rect(50,height-25,50*o2/o2M,10);
+    rectMode(CENTER);
   }
 
   void move()
@@ -41,6 +49,7 @@ class Spacecraft
     acc = new PVector(0, 0);
     direction = new PVector(pos.x-mouseX,pos.y-mouseY);
     direction.normalize();
+    o2--;
     
   }
 

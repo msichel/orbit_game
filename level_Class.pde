@@ -6,8 +6,9 @@ class Level
   PVector pos;
   Zone start;
   Zone end;
+  float o2;
 
-  Level(ArrayList<Body> bodies_, Zone start_, Zone end_)
+  Level(ArrayList<Body> bodies_, Zone start_, Zone end_, float o2_)
   {
     for (Body b:bodies_)
     {
@@ -15,6 +16,7 @@ class Level
     }
     start = start_;
     end = end_;
+    o2 = o2_;
   }
 
   void update()
@@ -49,9 +51,9 @@ class Level
       {
         ship.grav(addGrav(ship, b));
         //rocket-body crashes
-        if (dist(ship.pos.x, ship.pos.y, b.pos.x, b.pos.y) <= b.d/2 + ship.d/2)
+        if (ship.o2 <= 0 ||dist(ship.pos.x, ship.pos.y, b.pos.x, b.pos.y) <= b.d/2 + ship.d/2)
         {
-          gameMode++;
+          gameMode = 1;
         }
       }
     }
@@ -94,7 +96,7 @@ class Level
     else if (dir == null)
     {
       dir = new PVector(pos.x-mouseX, pos.y-mouseY);
-      ship = new Spacecraft(pos, dir);
+      ship = new Spacecraft(pos, dir,o2);
     }
   }
 }
