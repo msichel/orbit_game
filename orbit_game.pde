@@ -29,12 +29,15 @@ void draw()
     {
       background(0);
       textSize(30);
-      text("Click once in the blue zone to choose the starting point of your spaceship.", width/2, 100);
-      text("To move onto the next level, you must navigate yourself to the red zone.", width/2, 100);
-      text("Click again anywhere to choose the direction of your thrusters.", width/2, 100);
-      text("Your spaceship will launch in the opposite direction.", width/2, 100);
-      text("Your fuel is very limited! The longer you click, the more you use.", width/2, 100);
-      text("If you don't use all of your fuel in the launch, you can use it during your flight.", width/2, 100);
+      fill(0, 255, 255);
+      text("Click in the blue zone to choose the starting point of your spaceship.", width/2, 100);
+      text("Click again anywhere to choose the direction of your thrusters.", width/2, 200);
+      fill(255, 0, 255);
+      text("Your spaceship will launch in the opposite direction.", width/2, 300);
+      text("To move onto the next level, navigate to the red zone.", width/2, 400);
+      fill(255, 255, 0);
+      text("Your fuel is very limited! The longer you click, the more you use.", width/2, 500);
+      text("If you save some fuel from the launch, you can use it during your flight.", width/2, 600);
       gameMode = -1;
     }
     Level level = levels.get(levelnum);
@@ -57,10 +60,10 @@ void draw()
   }
   else
   {
-    background(0,255,0);
+    background(0, 255, 0);
     textSize(50);
     fill(255);
-    text("YOU WIN!", width/2,height/2);
+    text("YOU WIN!", width/2, height/2);
   }
 }
 
@@ -70,40 +73,40 @@ void setupLevels()
 
   ArrayList <Body> bodies = new ArrayList<Body>();
   ArrayList <Zone> zones = new ArrayList<Zone>();
-  
+
   //level 0
   bodies.add(new Body(new PVector(width/2, height/2-100), new PVector(2, 0), 100, 100));
   bodies.add(new Body(new PVector(width/2, height/2+100), new PVector(-2, 0), 100, 100));
-  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
-  zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
-  levels.add(new Level(bodies,zones.get(0),zones.get(1)));
-  
+  zones.add(new Zone(new PVector(50, height/2), new PVector(100, 100), 0));
+  zones.add(new Zone(new PVector(width-50, height/2), new PVector(100, 100), 1));
+  levels.add(new Level(bodies, zones.get(0), zones.get(1)));
+
   //level 1
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0), 1, 10));
   bodies.add(new Body(new PVector(width/2-250, height/2), new PVector(0, 0), 1, 10));
   bodies.add(new Body(new PVector(width/2+250, height/2), new PVector(0, 0), 1, 10));
-  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
-  zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
-  levels.add(new Level(bodies,zones.get(0),zones.get(1)));
-  
+  zones.add(new Zone(new PVector(50, height/2), new PVector(100, 100), 0));
+  zones.add(new Zone(new PVector(width-50, height/2), new PVector(100, 100), 1));
+  levels.add(new Level(bodies, zones.get(0), zones.get(1)));
+
   //level 2
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, -2300), new PVector(0, 0), 4500, 5000));
-  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
-  zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
-  levels.add(new Level(bodies,zones.get(0),zones.get(1)));
+  zones.add(new Zone(new PVector(50, height/2), new PVector(100, 100), 0));
+  zones.add(new Zone(new PVector(width-50, height/2), new PVector(100, 100), 1));
+  levels.add(new Level(bodies, zones.get(0), zones.get(1)));
 
   //level 3
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, height/2-200), new PVector(3, 0), 100, 100));
   bodies.add(new Body(new PVector(width/2, height/2+200), new PVector(-3, 0), 100, 100));
-  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
-  zones.add(new Zone(new PVector(width/2,height/2), new PVector(25, 25), 1));
-  levels.add(new Level(bodies,zones.get(0),zones.get(1)));
+  zones.add(new Zone(new PVector(50, height/2), new PVector(100, 100), 0));
+  zones.add(new Zone(new PVector(width/2, height/2), new PVector(25, 25), 1));
+  levels.add(new Level(bodies, zones.get(0), zones.get(1)));
 
   //level 4
   bodies.clear();
@@ -112,35 +115,35 @@ void setupLevels()
   bodies.add(new Body(new PVector(width/2, height/2+300), new PVector(-3, 0), 50, 50));
   bodies.add(new Body(new PVector(width/2-300, height/2), new PVector(0, -3), 50, 50));
   bodies.add(new Body(new PVector(width/2+300, height/2), new PVector(0, 3), 50, 50));
-  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
-  zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
-  levels.add(new Level(bodies,zones.get(0),zones.get(1)));
-  
+  zones.add(new Zone(new PVector(50, height/2), new PVector(100, 100), 0));
+  zones.add(new Zone(new PVector(width-50, height/2), new PVector(100, 100), 1));
+  levels.add(new Level(bodies, zones.get(0), zones.get(1)));
+
   //level 5
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0 ), 1000, 100));
-  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
-  zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
-  levels.add(new Level(bodies,zones.get(0),zones.get(1)));
-  
+  zones.add(new Zone(new PVector(50, height/2), new PVector(100, 100), 0));
+  zones.add(new Zone(new PVector(width-50, height/2), new PVector(100, 100), 1));
+  levels.add(new Level(bodies, zones.get(0), zones.get(1)));
+
   //level 6
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0), 100, 50));
-  bodies.add(new Body(new PVector(width/2-100,height/2),new PVector(0,sqrt(60)),10,5));
-  bodies.add(new Body(new PVector(width/2+200,height/2),new PVector(0,-sqrt(30)),10*sqrt(2),10*sqrt(2)));
-  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
-  zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
-  levels.add(new Level(bodies,zones.get(0),zones.get(1)));
-  
+  bodies.add(new Body(new PVector(width/2-100, height/2), new PVector(0, sqrt(60)), 10, 5));
+  bodies.add(new Body(new PVector(width/2+200, height/2), new PVector(0, -sqrt(30)), 10*sqrt(2), 10*sqrt(2)));
+  zones.add(new Zone(new PVector(50, height/2), new PVector(100, 100), 0));
+  zones.add(new Zone(new PVector(width-50, height/2), new PVector(100, 100), 1));
+  levels.add(new Level(bodies, zones.get(0), zones.get(1)));
+
   //level 7
   bodies.clear();
   zones.clear();
   bodies.add(new Body(new PVector(150, height/2), new PVector(0, 0), 25, 100));
-  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
-  zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
-  levels.add(new Level(bodies,zones.get(0),zones.get(1)));
+  zones.add(new Zone(new PVector(50, height/2), new PVector(100, 100), 0));
+  zones.add(new Zone(new PVector(width-50, height/2), new PVector(100, 100), 1));
+  levels.add(new Level(bodies, zones.get(0), zones.get(1)));
 }
 
 PVector addGrav(Body on, Body by)
