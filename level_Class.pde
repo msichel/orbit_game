@@ -1,6 +1,7 @@
 class Level
 {
   Spacecraft ship;
+  int spawnTimer = 120;
   ArrayList<Body> bodies = new ArrayList<Body>();
   PVector dir;
   PVector pos;
@@ -22,6 +23,18 @@ class Level
   void update()
   {
     background(0);
+    if (spawnTimer == 0 && ship == null)
+    {
+      ship = new Spacecraft(start.center, new PVector(1, 0), o2);
+    }
+    else if (spawnTimer >0  && ship == null)
+    {
+      rectMode(CORNER);
+      fill(255, 127.5, 0);
+      rect(50, height-40, 50*spawnTimer/120, 10);
+      rectMode(CENTER);
+    }
+    spawnTimer--;
     //apply body-body gravity
     for (int i = 0; i < bodies.size(); i++)
     {
@@ -80,23 +93,26 @@ class Level
       textAlign(LEFT);
       text("Position:" + int(ship.pos.x) + ',' + int(height - ship.pos.y), 50, height - 75);
       text("Velocity:" + int(10*ship.vel.x) + ',' + int(-10*ship.vel.y), 50, height - 50);
-      textAlign(CENTER,CENTER);
+      textAlign(CENTER, CENTER);
     }
   }
   void click()
   {
-    if (pos == null)
+    if (ship == null)
     {
-      if (abs(mouseX - start.center.x) < start.zSize.x/2 && abs(mouseY - start.center.y) < start.zSize.y/2)
+      if (pos == null)
       {
-        pos = new PVector(mouseX, mouseY);
+        if (abs(mouseX - start.center.x) < start.zSize.x/2 && abs(mouseY - start.center.y) < start.zSize.y/2)
+        {
+          pos = new PVector(mouseX, mouseY);
+        }
       }
-    }
 
-    else if (dir == null)
-    {
-      dir = new PVector(pos.x-mouseX, pos.y-mouseY);
-      ship = new Spacecraft(pos, dir,o2);
+      else if (dir == null)
+      {
+        dir = new PVector(pos.x-mouseX, pos.y-mouseY);
+        ship = new Spacecraft(pos, dir, o2);
+      }
     }
   }
 }
