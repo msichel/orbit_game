@@ -120,13 +120,24 @@ void setupLevels()
   zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
   levels.add(new Level(bodies,zones.get(0),zones.get(1),600));
   
+  float x = 250; 
+  float y = x/2-x/12;
+  float a = 4.2;
+  float b = 1.4;
   //level 5
   bodies.clear();
   zones.clear();
-  bodies.add(new Body(new PVector(width/2, height/2), new PVector(0, 0 ), 1000, 100));
-  zones.add(new Zone(new PVector(50, height/2), new PVector(100,100), 0));
-  zones.add(new Zone(new PVector(width-50,height/2), new PVector(100,100), 1));
-  levels.add(new Level(bodies,zones.get(0),zones.get(1),10000));
+  bodies.add(new Body(new PVector(width/2-x, height/2+y), new PVector(b, a), 50, 50));
+  bodies.add(new Body(new PVector(width/2-x, height/2-y), new PVector(-b, a), 50, 50));
+  bodies.add(new Body(new PVector(width/2+x, height/2+y), new PVector(b, -a), 50, 50));
+  bodies.add(new Body(new PVector(width/2+x, height/2-y), new PVector(-b, -a), 50, 50));
+  bodies.add(new Body(new PVector(width/2-y, height/2+x), new PVector(a, b), 50, 50));
+  bodies.add(new Body(new PVector(width/2-y, height/2-x), new PVector(-a, b), 50, 50));
+  bodies.add(new Body(new PVector(width/2+y, height/2+x), new PVector(a, -b), 50, 50));
+  bodies.add(new Body(new PVector(width/2+y, height/2-x), new PVector(-a, -b), 50, 50));
+  zones.add(new Zone(new PVector(width/2, 50), new PVector(100,100), 0));
+  zones.add(new Zone(new PVector(width/2,height-50), new PVector(100,100), 1));
+  levels.add(new Level(bodies,zones.get(0),zones.get(1),200));
   
   //level 6
   bodies.clear();
