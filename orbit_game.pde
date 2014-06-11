@@ -52,7 +52,7 @@ void draw()
     {
       textSize(50);
       fill(255, 0, 0);
-      text("BOOM! YOU LOSE!", width/2, 100);
+      text("YOU LOSE!", width/2, 100);
     }
     else if (gameMode == 2)
     {
