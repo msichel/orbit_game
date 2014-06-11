@@ -31,7 +31,7 @@ class Level
     else if (spawnTimer >0  && ship == null)
     {
       rectMode(CORNER);
-      fill(255, 127.5, 0);
+      fill(255, 5, 0);
       rect(50, height-40, 50*spawnTimer/120, 10);
       rectMode(CENTER);
     }
@@ -97,10 +97,11 @@ class Level
       textAlign(CENTER, CENTER);
       if (levelnum == 9)
       {
-        if (millis() - oldTime >= 500)
+        if (millis() - oldTime >= 1000)
         {
           oldTime = millis();
-          println(int(ship.vel.mag()) + ", " + int(dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y))); 
+          println(int(ship.vel.mag()));
+          println(int(dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y))); 
           println(int(ship.vel.mag() * dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y)));
         }
       }
