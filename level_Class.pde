@@ -100,8 +100,8 @@ class Level
         if (millis() - oldTime >= 500)
         {
           oldTime = millis();
-          println(ship.vel.mag() + ", " + dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y)); 
-          println(ship.vel.mag() * dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y));
+          println(int(ship.vel.mag()) + ", " + int(dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y))); 
+          println(int(ship.vel.mag() * dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y)));
         }
       }
     }
