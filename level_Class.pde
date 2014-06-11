@@ -95,15 +95,15 @@ class Level
       text("Position:" + int(ship.pos.x) + ',' + int(height - ship.pos.y), 50, height - 75);
       text("Velocity:" + int(10*ship.vel.x) + ',' + int(-10*ship.vel.y), 50, height - 50);
       textAlign(CENTER, CENTER);
-      if (levelnum == 9)
-      {
-        if (millis() - oldTime >= 1000)
-        {
-          oldTime = millis();
-          println(int(ship.vel.mag()));
-          println(int(dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y))); 
-          println(int(ship.vel.mag() * dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y)));
-        }
+//      if (levelnum == 9)
+//      {
+//        if (millis() - oldTime >= 1000)
+//        {
+//          oldTime = millis();
+//          println(int(ship.vel.mag()));
+//          println(int(dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y))); 
+//          println(int(ship.vel.mag() * dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y)));
+//        }
       }
     }
   }
