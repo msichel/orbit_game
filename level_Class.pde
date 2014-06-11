@@ -104,7 +104,7 @@ class Level
 //          println(int(dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y))); 
 //          println(int(ship.vel.mag() * dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y)));
 //        }
-      }
+//      }
     }
   }
   void click()
