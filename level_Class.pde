@@ -8,6 +8,7 @@ class Level
   Zone start;
   Zone end;
   float o2;
+  int oldTime;
 
   Level(ArrayList<Body> bodies_, Zone start_, Zone end_, float o2_)
   {
@@ -94,6 +95,15 @@ class Level
       text("Position:" + int(ship.pos.x) + ',' + int(height - ship.pos.y), 50, height - 75);
       text("Velocity:" + int(10*ship.vel.x) + ',' + int(-10*ship.vel.y), 50, height - 50);
       textAlign(CENTER, CENTER);
+      if (levelnum == 9)
+      {
+        if (millis() - oldTime >= 500)
+        {
+          oldTime = millis();
+          println(ship.vel.mag() + ", " + dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y)); 
+          println(ship.vel.mag() * dist(ship.pos.x, ship.pos.y, bodies.get(0).pos.x, bodies.get(0).pos.y));
+        }
+      }
     }
   }
   void click()
